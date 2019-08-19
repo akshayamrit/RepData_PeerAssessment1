@@ -1,5 +1,7 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
+author: "Akshay Amrit"
+Date: "20th August, 2019"
 output: 
   html_document:
     keep_md: true
