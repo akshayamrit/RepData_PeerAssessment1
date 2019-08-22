@@ -28,8 +28,8 @@ activity.perDaySteps <- activity %>% group_by(date) %>% summarize(perDaySteps = 
 Make a histogram of the total number of steps taken each day using "ggplot2"
 ```{r}
 suppressWarnings(library(ggplot2))
-g <- ggplot(activity.perDaySteps, aes(x = date, y = perDaySteps))
-g + geom_bar(stat = "identity", fill = "blue", width = 0.8) + theme(plot.title = element_text(hjust = 0.5)) + labs(x = "Date", y = "No of Steps/Day", title = "Total Number of Steps Taken Per Day")
+g <- ggplot(activity.perDaySteps, aes(x = perDaySteps))
+g + geom_histogram(binwidth = 1000, fill = "blue") + theme(plot.title = element_text(hjust = 0.5)) + labs(x = "No of Steps/Day", y = "Count", title = "Total Number of Steps Taken Per Day")
 ```
 
 Mean total number of steps taken per day:
@@ -78,8 +78,8 @@ head(activity.updated)
 We need to create a histogram with steps taken each day so we will create a new table using 'activity.updated' and create a histogram using that table.
 ```{r}
 activity.updated.perDaySteps <- activity.updated %>% group_by(date) %>% summarize(perDaySteps = sum(steps, na.rm = TRUE))
-g <- ggplot(activity.updated.perDaySteps, aes(x = date, y = perDaySteps))
-g + geom_bar(stat = "identity", fill = "blue", width = 0.8) + theme(plot.title = element_text(hjust = 0.5)) + labs(x = "Date", y = "No of Steps/Day", title = "Total Number of Steps Taken Per Day Using Updated Table")
+g <- ggplot(activity.updated.perDaySteps, aes(x = perDaySteps))
+g + geom_histogram(binwidth = 1000, fill = "blue") + theme(plot.title = element_text(hjust = 0.5)) + labs(x = "No of Steps/Day", y = "No of Steps/Day", title = "Total Number of Steps Taken Per Day Using Updated Table")
 ```
 
 Mean total number of steps taken per day according to updated table:
